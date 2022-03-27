@@ -21,8 +21,8 @@ def download_file(url, local_filename):
 
 
 ig = "https://ig.tokhmi.xyz"
-ig_username = "succc.exe"
-channel_username = "succcexe"
+ig_username = sys.argv[1]
+channel_username = sys.argv[2]
 async def main():
     x = requests.get(ig+'/u/'+ig_username)
     soup = bs4.BeautifulSoup(x.text)
