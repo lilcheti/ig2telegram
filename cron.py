@@ -45,7 +45,7 @@ async def main():
                         async with TelegramClient(StringSession(session), api_id, api_hash) as client:
                             await client.send_file(channel_username, filename, caption="@"+channel_username)
                             os.remove(filename)
-                    elif image.name == "image":
+                    elif image.name == "img":
                         filename = str(i)+".jpeg"
                         download_file(ig+image.get('src'),filename)
                         async with TelegramClient(StringSession(session), api_id, api_hash) as client:
