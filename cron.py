@@ -25,16 +25,16 @@ ig_username = "succc.exe"
 channel_username = "succcexe"
 async def main():
     x = requests.get(ig+'/u/'+ig_username)
-    soup = bs4.BeautifulSoup(x.text,features="lxml")
+    soup = bs4.BeautifulSoup(x.text)
     post = soup.select('a[class="sized-link"]')[0].get('href')
     print(post)
     with open('post.txt') as myfile:
         if not post in myfile.read():
             print("new post!")
             x = requests.get(ig+post)
-            soup = bs4.BeautifulSoup(x.text,features="lxml")
+            soup = bs4.BeautifulSoup(x.text)
             images = soup.findAll('section',{"class":"images-gallery"})[0].decode_contents()
-            soup = bs4.BeautifulSoup(images,features="lxml")
+            soup = bs4.BeautifulSoup(images)
             imageArray = soup.find_all()
             i=1
             for image in imageArray:
