@@ -16,7 +16,7 @@ jobs:
         python-version: '3.x' # Version range or exact version of a Python version to use, using SemVer's version range syntax
     - name: Post new ones
       run: |
-        pip install req.txt
+        pip install -r req.txt
         python cron.py
       env:
         SESSION: ${{ secrets.SESSION }}
