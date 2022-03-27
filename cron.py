@@ -3,9 +3,9 @@ from telethon import TelegramClient
 from telethon.sessions import StringSession
 
 
-session = sys.argv[1]
-api_id = sys.argv[2]
-api_hash = sys.argv[3]
+session = os.environ.get("SESSION")
+api_id = os.environ.get("API_ID")
+api_hash = os.environ.get("API_HASH")
 
 def download_file(url, local_filename):
     # NOTE the stream=True parameter below
