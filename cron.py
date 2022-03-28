@@ -52,9 +52,10 @@ async def main():
                             await client.send_file(channel_username, filename, caption="@"+channel_username)
                             os.remove(filename)
                 i+=1
-    f = open("post.txt", "w")
-    f.write(post)
-    f.close()       
+    if 'succcexe' in channel_username:
+        f = open("post.txt", "w")
+        f.write(post)
+        f.close()       
                 
 asyncio.run(main())
 
