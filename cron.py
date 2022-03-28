@@ -1,7 +1,7 @@
 import requests,bs4,os,asyncio,sys
 from telethon import TelegramClient
 from telethon.sessions import StringSession
-
+from datetime import timedelta
 
 session = os.environ.get("SESSION")
 api_id = os.environ.get("API_ID")
@@ -43,13 +43,13 @@ async def main():
                         filename = str(i)+".mp4"
                         download_file(ig+image.get('src'),filename)
                         async with TelegramClient(StringSession(session), api_id, api_hash) as client:
-                            await client.send_file(channel_username, filename, caption="@"+channel_username)
+                            await client.send_file(channel_username, filename, caption="@"+channel_username,schedule=timedelta(minutes=60+60*i))
                             os.remove(filename)
                     elif image.name == "img":
                         filename = str(i)+".jpeg"
                         download_file(ig+image.get('src'),filename)
                         async with TelegramClient(StringSession(session), api_id, api_hash) as client:
-                            await client.send_file(channel_username, filename, caption="@"+channel_username)
+                            await client.send_file(channel_username, filename, caption="@"+channel_username,schedule=timedelta(minutes=60+60*i))
                             os.remove(filename)
                 i+=1
     if 'succcexe' in channel_username:
