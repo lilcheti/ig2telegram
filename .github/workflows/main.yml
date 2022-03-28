@@ -2,7 +2,7 @@ name: Post
 
 on:
   schedule:
-    - cron: '12 5 * * *'
+    - cron: '0 * * * *'
   workflow_dispatch:
 
 jobs:
@@ -17,7 +17,7 @@ jobs:
     - name: Post new ones
       run: |
         pip install -r req.txt
-        python cron.py
+        python cron.py succc.exe succcexe
       env:
         SESSION: ${{ secrets.SESSION }}
         API_ID: ${{ secrets.API_ID }}
