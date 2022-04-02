@@ -1,4 +1,4 @@
-name: Post
+name: theredditbandit
 
 on:
   schedule:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  update:
+  theredditbandit:
     runs-on: ubuntu-latest
     
     steps:
