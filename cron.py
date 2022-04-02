@@ -28,7 +28,7 @@ async def main():
     soup = bs4.BeautifulSoup(x.text)
     post = soup.select('a[class="sized-link"]')[0].get('href')
     print(post)
-    with open(ig_username+'.txt') as myfile:
+    with open(ig_username+'.txt', 'w+') as myfile:
         if not post in myfile.read():
             print("new post!")
             x = requests.get(ig+post)
