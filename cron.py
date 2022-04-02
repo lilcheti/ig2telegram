@@ -28,7 +28,7 @@ async def main():
     soup = bs4.BeautifulSoup(x.text)
     post = soup.select('a[class="sized-link"]')[0].get('href')
     print(post)
-    with open('post.txt') as myfile:
+    with open(ig_username+'.txt') as myfile:
         if not post in myfile.read():
             print("new post!")
             x = requests.get(ig+post)
@@ -53,7 +53,7 @@ async def main():
                             os.remove(filename)
                 i+=1
     if 'succcexe' in channel_username:
-        f = open("post.txt", "w")
+        f = open(ig_username+".txt", "w")
         f.write(post)
         f.close()       
                 
