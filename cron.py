@@ -20,7 +20,7 @@ def download_file(url, local_filename):
     return local_filename
 
 
-ig = "https://bib.actionsack.com"
+ig = "https://ig.tokhmi.xyz"
 ig_username = sys.argv[1]
 channel_username = sys.argv[2]
 async def main():
