@@ -1,0 +1,37 @@
+name: largetrap
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+jobs:
+  largetrap:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v3
+      with:
+        python-version: '3.x' # Version range or exact version of a Python version to use, using SemVer's version range syntax
+    - name: Post new ones
+      run: |
+        pip install -r req.txt
+        python cron.py largetrap sickofmeme
+        python cron.py largetrap succcexe
+      env:
+        SESSION: ${{ secrets.SESSION }}
+        API_ID: ${{ secrets.API_ID }}
+        API_HASH: ${{ secrets.API_HASH }}
+    - name: push changes to remote
+      run: |
+        git config --global user.name "lilcheti"
+        git config --global user.email "farbod@tokhmi.xyz"
+        git pull
+        git add -A
+        if [ -z "$(git status --porcelain)" ]; then 
+          echo "No changes"
+        else 
+          git commit -m "updated the data"
+          git push
+        fi
